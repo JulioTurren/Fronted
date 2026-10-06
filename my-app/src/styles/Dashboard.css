@@ -1,0 +1,713 @@
+.dashboard-layout {
+    min-height: 100vh;
+    display: flex;
+
+    background:
+        radial-gradient(
+            circle at 80% 5%,
+            rgba(225, 6, 0, 0.08),
+            transparent 25%
+        ),
+        #080808;
+
+    color: #ffffff;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 245px;
+    min-height: 100vh;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 28px 20px;
+
+    background: #0c0c0c;
+    border-right: 1px solid #252525;
+}
+
+.dashboard-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 45px;
+}
+
+.dashboard-logo-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #e10600,
+        #ff332b
+    );
+
+    box-shadow: 0 0 25px rgba(225, 6, 0, 0.18);
+}
+
+.dashboard-logo h2 {
+    margin: 0;
+
+    color: white;
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+
+.dashboard-logo span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #777;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.menu-label {
+    margin: 0 10px 12px;
+
+    color: #666;
+    font-size: 10px;
+    letter-spacing: 1.8px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sidebar-button {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 13px 14px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #999;
+
+    text-align: left;
+    font-size: 14px;
+
+    transition: 0.2s ease;
+}
+
+.sidebar-button:hover {
+    color: white;
+    background: #171717;
+}
+
+.sidebar-button.active {
+    color: white;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(225, 6, 0, 0.22),
+            rgba(225, 6, 0, 0.02)
+        );
+
+    border-left: 3px solid #e10600;
+}
+
+.sidebar-user {
+    margin-top: auto;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #242424;
+
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.user-avatar {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e10600;
+    color: white;
+
+    font-weight: 700;
+}
+
+.sidebar-user strong {
+    display: block;
+
+    max-width: 140px;
+
+    color: white;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-user small {
+    color: #777;
+}
+
+/* CONTENIDO */
+
+.dashboard-main {
+    width: calc(100% - 245px);
+
+    margin-left: 245px;
+
+    padding: 35px 45px 50px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 35px;
+}
+
+.dashboard-header h1 {
+    margin: 0 0 6px;
+
+    color: white;
+
+    font-size: 28px;
+}
+
+.dashboard-header p {
+    margin: 0;
+
+    color: #888;
+}
+
+.logout-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 15px;
+
+    border-radius: 8px;
+    border: 1px solid #333;
+
+    color: #ccc;
+    background: #151515;
+
+    transition: 0.2s;
+}
+
+.logout-button:hover {
+    color: white;
+    border-color: #e10600;
+
+    background: rgba(225, 6, 0, 0.08);
+}
+
+/* TARJETAS */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 22px;
+}
+
+.stat-card {
+    min-height: 125px;
+
+    padding: 22px;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171717,
+            #111111
+        );
+
+    border: 1px solid #292929;
+
+    transition:
+        transform 0.2s,
+        border-color 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    border-color: #444;
+}
+
+.stat-icon {
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-icon.red {
+    color: #ff4138;
+    background: rgba(225, 6, 0, 0.12);
+}
+
+.stat-icon.gold {
+    color: #f5b942;
+    background: rgba(245, 185, 66, 0.1);
+}
+
+.stat-icon.green {
+    color: #22c55e;
+    background: rgba(34, 197, 94, 0.1);
+}
+
+.stat-card span {
+    color: #888;
+    font-size: 12px;
+}
+
+.stat-card h2 {
+    margin: 7px 0 0;
+
+    color: white;
+
+    font-size: 25px;
+}
+
+.balance-value {
+    color: #f5b942 !important;
+}
+
+/* SNAILPAY */
+
+.snailpay-card {
+    justify-content: space-between;
+}
+
+.snailpay-button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    background: #e10600;
+
+    transition: 0.2s;
+}
+
+.snailpay-button:hover {
+    background: #ff2018;
+    transform: scale(1.06);
+}
+
+/* GRAFICAS */
+
+.charts-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(340px, 0.85fr)
+        minmax(500px, 1.4fr);
+
+    gap: 22px;
+}
+
+.chart-card {
+    padding: 25px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171717,
+            #101010
+        );
+
+    border: 1px solid #292929;
+
+    min-width: 0;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 15px;
+}
+
+.chart-header h2 {
+    margin: 0 0 6px;
+
+    color: white;
+
+    font-size: 18px;
+}
+
+.chart-header p {
+    margin: 0;
+
+    color: #777;
+
+    font-size: 12px;
+}
+
+.chart-badge {
+    padding: 6px 10px;
+
+    border-radius: 6px;
+
+    color: #ff5048;
+    background: rgba(225, 6, 0, 0.1);
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1150px) {
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+
+    .sidebar {
+        display: none;
+    }
+
+    .dashboard-main {
+        width: 100%;
+        margin-left: 0;
+
+        padding: 25px 18px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-header {
+        align-items: flex-start;
+    }
+}
+
+/*SNAILPAY MODAL*/
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.78);
+
+    backdrop-filter: blur(5px);
+}
+
+.snailpay-modal {
+    width: 100%;
+    max-width: 430px;
+
+    padding: 28px;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #191919,
+            #101010
+        );
+
+    border: 1px solid #343434;
+
+    box-shadow:
+        0 30px 100px
+        rgba(0, 0, 0, 0.7);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 28px;
+}
+
+.modal-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.modal-title h2 {
+    margin: 0 0 4px;
+
+    color: white;
+}
+
+.modal-title p {
+    margin: 0;
+
+    color: #777;
+
+    font-size: 12px;
+}
+
+.modal-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    color: white;
+
+    background: #e10600;
+}
+
+.modal-close {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 8px;
+
+    color: #999;
+
+    background: #222;
+}
+
+.modal-close:hover {
+    color: white;
+    background: #2d2d2d;
+}
+
+.modal-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #ddd;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.amount-input {
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 0 15px;
+
+    border-radius: 9px;
+    border: 1px solid #333;
+
+    background: #0b0b0b;
+
+    color: #f5b942;
+}
+
+.amount-input:focus-within {
+    border-color: #e10600;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(225, 6, 0, 0.1);
+}
+
+.amount-input input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.quick-label {
+    margin: 22px 0 10px;
+
+    color: #777;
+
+    font-size: 12px;
+}
+
+.quick-amounts {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 8px;
+}
+
+.quick-amounts button {
+    padding: 10px 5px;
+
+    border-radius: 7px;
+    border: 1px solid #333;
+
+    background: #171717;
+
+    color: #ddd;
+}
+
+.quick-amounts button:hover {
+    color: white;
+
+    border-color: #e10600;
+
+    background:
+        rgba(225, 6, 0, 0.08);
+}
+
+.payment-button {
+    width: 100%;
+    height: 50px;
+
+    margin-top: 25px;
+
+    border: none;
+    border-radius: 9px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e10600,
+            #b40400
+        );
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.payment-button:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #ff2018,
+            #e10600
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(225, 6, 0, 0.25);
+}
+
+.payment-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.modal-error {
+    margin-top: 15px;
+
+    padding: 10px;
+
+    border-radius: 7px;
+
+    color: #fca5a5;
+
+    background:
+        rgba(239, 68, 68, 0.08);
+
+    border:
+        1px solid
+        rgba(239, 68, 68, 0.25);
+
+    font-size: 13px;
+}
+
+.simulation-text {
+    margin: 15px 0 0;
+
+    text-align: center;
+
+    color: #666;
+
+    font-size: 11px;
+    line-height: 1.5;
+}
